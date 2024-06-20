@@ -1,0 +1,9 @@
+
+.app-shell{
+    display: grid;
+    grid-template-rows: minmax(100px, auto) 1fr minmax(50px, auto);
+    min-height: 100vh;
+    header, footer, main{
+        padding: 1rem;
+    }
+}

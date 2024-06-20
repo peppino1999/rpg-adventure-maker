@@ -1,0 +1,27 @@
+<table>
+    <thead>
+        <tr>
+            @for(column of columns; track $index){
+                <th>{{column.label}}</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @for(row of data; track $index){
+            <tr>
+                @for(column of columns; track $index){
+                    @switch (column.type) {
+                        @case('action'){
+                            <td>
+                                <button (click)="action(row)">{{column.label}}</button>
+                            </td>
+                        }@default {
+                            <td>{{row[column.name]}}</td>
+                        }
+                    }
+                   
+                }
+            </tr>
+        }
+    </tbody>
+</table>

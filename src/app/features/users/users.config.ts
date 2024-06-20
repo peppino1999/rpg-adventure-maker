@@ -1,0 +1,72 @@
+import { Validators } from "@angular/forms";
+import { FormConfig } from "../../shared/form/form.component";
+import { TableConfig } from "../../shared/table/table.model";
+
+export const userFormConfig: FormConfig[] = [
+    {
+      name: 'firstName',
+      label: 'Nome',
+      type: 'text',
+      validators: [Validators.required]
+    }, 
+    {
+      name: 'lastName',
+      label: 'congnome',
+      type: 'text',
+      validators: [Validators.required]
+    }, 
+    {
+      name: 'city',
+      label: 'La tua città',
+      type: 'text',
+      validators: [Validators.required]
+    },
+    {
+      name: 'email',
+      label: 'Indirizzo Email',
+      type: 'text',
+      validators: [Validators.required, Validators.email]
+    },
+    {
+      name: 'phone',
+      label: 'Numero di telefono',
+      type: 'text',
+      validators: [Validators.required, Validators.pattern(/^\+\d{2}\s\d{10}$/)], 
+      errorMessage: 'deve essere un numero di telefono valido'
+    },
+    {
+      name: 'notes',
+      label: 'note',
+      type: 'textarea',
+      validators: [Validators.required, Validators.minLength(10),Validators.maxLength(100)]
+    }
+  ]
+
+export const userTableConfig: TableConfig[] = [
+  {
+    name: 'firstName',
+    type: 'text',
+    label: 'Nome'
+  },
+  {
+    name: 'lastName',
+    type: 'text',
+    label: 'Cognome'
+  },
+  {
+    name: 'city',
+    type: 'text',
+    label: 'Città'
+  },
+  {
+    name: 'email',
+    type: 'text',
+    label: 'Email'
+  },
+  {
+    name: 'detail',
+    type: 'action',
+    label: 'Go to detail'
+  },
+
+]

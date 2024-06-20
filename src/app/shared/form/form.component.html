@@ -1,0 +1,18 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    @for(field of formConfig; track $index){
+        <fieldset>
+            <label [for]="field.name">{{field.label}}</label>
+            <hr />
+            @switch (field.type) {
+                @case ('text') {
+                    <input [formControlName]="field.name" [id]="field.name"/>
+                }
+                @case ('textarea'){
+                    <textarea [formControlName]="field.name" [id]="field.name"></textarea>
+                }
+            }
+            <app-error [control]="form.get(field.name)" [errorMessage]="field?.errorMessage"/>
+        </fieldset>
+    }
+  <button type="submit" [disabled]="!form.valid">Submit Form</button>
+</form>

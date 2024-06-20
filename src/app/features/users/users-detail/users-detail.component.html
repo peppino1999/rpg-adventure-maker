@@ -1,0 +1,8 @@
+@if(user$ | async; as user){
+    <h1>Edit User</h1>
+
+    <button [routerLink]="['/']">Back</button>
+    <button (click)="deleteUser(user)">Delete</button>
+    <app-form [formConfig]="formConfig" [startingValues]="user" (onSubmit)="updateUser($event)"/>
+}
+
