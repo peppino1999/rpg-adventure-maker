@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { API_URL } from './core/tokens';
+import { API_URL, SECURE_URL_CODE } from './core/tokens';
 
 @NgModule({
   declarations: [
@@ -18,6 +18,10 @@ import { API_URL } from './core/tokens';
     {
       provide: API_URL,
       useValue: '/api'
+    },
+    {
+      provide: SECURE_URL_CODE,
+      useValue: '660'
     },
     provideHttpClient(
       withFetch()

@@ -1,3 +1,4 @@
-import { InjectionToken } from "@angular/core";
+import { InjectionToken } from '@angular/core';
 
-export const API_URL = new InjectionToken<string>('API_URL')
+export const API_URL = new InjectionToken<string>('API_URL');
+export const SECURE_URL_CODE = new InjectionToken<string>('SECURE_URL_CODE');

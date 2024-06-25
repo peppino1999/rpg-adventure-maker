@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../../core/services/users.service';
 import { EssentialComponent } from '../../../core/essentialComponent';
-import { userFormConfig } from '../users.config';
 import { catchError, takeUntil, throwError } from 'rxjs';
+import { userFormConfig } from '../../../core/configs';
 
 @Component({
   selector: 'app-users-detail',

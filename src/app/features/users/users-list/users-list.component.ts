@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { UsersService } from '../users.service';
+import { UsersService } from '../../../core/services/users.service';
 import { EssentialComponent } from '../../../core/essentialComponent';
-import { userTableConfig } from '../users.config';
-import { User } from '../models';
+import { userTableConfig } from '../../../core/configs';
+import { User } from '../../../core/models';
 
 @Component({
   selector: 'app-users-list',

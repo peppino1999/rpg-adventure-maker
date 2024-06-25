@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { userFormConfig } from '../users.config';
-import { UsersService } from '../users.service';
-import { User } from '../models';
+import { UsersService } from '../../../core/services/users.service';
 import { takeUntil } from 'rxjs';
 import { EssentialComponent } from '../../../core/essentialComponent';
 import { Router } from '@angular/router';
+import { userFormConfig } from '../../../core/configs';
+import { User } from '../../../core/models';
 
 @Component({
   selector: 'app-users-new',

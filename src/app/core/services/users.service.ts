@@ -1,7 +1,7 @@
 import { Observable } from 'rxjs';
-import { EssentialService } from '../../core/essentialService';
-import { User } from './models';
+import { EssentialService } from '../essentialService';
 import { Injectable } from '@angular/core';
+import { User } from '../models';
 @Injectable({
   providedIn: 'root',
 })

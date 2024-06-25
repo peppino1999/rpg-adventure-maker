@@ -1,6 +1,6 @@
-import { Validators } from "@angular/forms";
-import { FormConfig } from "../../shared/form/form.component";
-import { TableConfig } from "../../shared/table/table.model";
+import { Validators } from "@angular/forms"
+import { FormConfig } from "../shared/form/form.component"
+import { TableConfig } from "../shared/table/table.model"
 
 export const userFormConfig: FormConfig[] = [
     {
