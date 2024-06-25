@@ -1,1 +1,2 @@
-<p>signin works!</p>
+<app-form [formConfig]="signInFormConfig" (onSubmit)="signIn($event)"></app-form>
+<button [routerLink]="['/signup']">Sign Up</button>

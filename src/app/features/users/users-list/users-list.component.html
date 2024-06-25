@@ -1,7 +1,3 @@
-<p>users-list works!</p>
-<button [routerLink]="['/new']">Create user</button>
-
-
 <app-table [data]="users$ | async" [columns]="tableConfig" (onAction)="goToDetail($event)"/>
 
 

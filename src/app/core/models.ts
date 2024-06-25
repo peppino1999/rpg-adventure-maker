@@ -13,6 +13,11 @@ export interface ApiCallParams {
     }
 }
 
+export interface LoginInfo {
+    user: string,
+    password: string
+}
+
 export type User = {
     id: number,
     firstName: string,
@@ -20,5 +25,7 @@ export type User = {
     city: string,
     email: string,
     phone: string,
-    notes: string
+    notes: string,
+    password?: string,
+    confirmPassword?: string
 }

@@ -16,6 +16,6 @@ export class UsersListComponent extends EssentialComponent{
    users$ = this.usersService.getUsers();
 
    goToDetail(user:User){
-     this.router.navigate([user.id])
+     this.router.navigate([user.id], {relativeTo: this.route})
    }
 }

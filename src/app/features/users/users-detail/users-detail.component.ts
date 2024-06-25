@@ -25,7 +25,7 @@ export class UsersDetailComponent extends EssentialComponent {
       .deleteUser(user)
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
-        this.router.navigate(['/']);
+        this.router.navigate(['../']);
       });
   }
 

@@ -1,1 +1,3 @@
-<p>signup works!</p>
+<h1>Create User</h1>
+<button [routerLink]="['../']">Back</button>
+<app-form [formConfig]="formConfig" (onSubmit)="createUser($event)" [globalValidators]="globalValidators">

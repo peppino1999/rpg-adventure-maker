@@ -4,7 +4,6 @@ import { UsersComponent } from './users.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
-import { UsersNewComponent } from './users-new/users-new.component';
 import { SharedModule } from '../../shared/shared.module';
 
 
@@ -14,7 +13,6 @@ import { SharedModule } from '../../shared/shared.module';
     UsersComponent,
     UsersListComponent,
     UsersDetailComponent,
-    UsersNewComponent
   ],
   imports: [
     CommonModule,

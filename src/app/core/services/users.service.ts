@@ -1,14 +1,17 @@
 import { Observable } from 'rxjs';
 import { EssentialService } from '../essentialService';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { User } from '../models';
+import { SECURE_URL_CODE } from '../tokens';
 @Injectable({
   providedIn: 'root',
 })
 export class UsersService extends EssentialService {
+
+
   constructor() {
     super();
-    this.apiPath = 'users';
+    this.apiPath = `/users`;
   }
 
   getUsers(): Observable<User[]> {

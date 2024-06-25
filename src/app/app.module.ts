@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { API_URL, SECURE_URL_CODE } from './core/tokens';
+import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { API_URL, LOGGEDIN_ROOT, SECURE_URL_CODE } from './core/tokens';
 
 @NgModule({
   declarations: [
@@ -23,8 +23,13 @@ import { API_URL, SECURE_URL_CODE } from './core/tokens';
       provide: SECURE_URL_CODE,
       useValue: '660'
     },
+    {
+      provide: LOGGEDIN_ROOT,
+      useValue: '/users'
+    },
     provideHttpClient(
-      withFetch()
+      withFetch(),
+
     )
   ],
   bootstrap: [AppComponent]

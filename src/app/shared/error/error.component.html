@@ -1,4 +1,10 @@
-<!-- {{ control | json}} -->
+@if( globalErrors && name && globalErrors['relatedFields'].includes(name) && globalErrors['passwordMismatch']){
+    <p>
+        Le password non corrispondono
+    </p>
+}
+
+
 @if( !control?.valid && (control?.dirty || control?.touched)){
 
     @if( control?.errors?.['required']){

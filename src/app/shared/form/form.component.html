@@ -7,11 +7,14 @@
                 @case ('text') {
                     <input [formControlName]="field.name" [id]="field.name"/>
                 }
+                @case ('password') {
+                    <input type="password" [formControlName]="field.name" [id]="field.name"/>
+                }
                 @case ('textarea'){
                     <textarea [formControlName]="field.name" [id]="field.name"></textarea>
                 }
             }
-            <app-error [control]="form.get(field.name)" [errorMessage]="field?.errorMessage"/>
+            <app-error [control]="form.get(field.name)" [errorMessage]="field?.errorMessage" [globalErrors]="form.errors" [name]="field.name"/>
         </fieldset>
     }
   <button type="submit" [disabled]="!form.valid">Submit Form</button>
