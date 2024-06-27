@@ -7,6 +7,7 @@ import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/
 import { API_URL, LOGGEDIN_ROOT, SECURE_URL_CODE } from './core/tokens';
 import { SharedModule } from './shared/shared.module';
 import { loadingInterceptor } from './core/interceptors/loading.interceptor';
+import { LoadingModule } from './features/loading/loading.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { loadingInterceptor } from './core/interceptors/loading.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    LoadingModule
   ],
   providers: [
     {
@@ -32,9 +34,6 @@ import { loadingInterceptor } from './core/interceptors/loading.interceptor';
     },
     provideHttpClient(
       withFetch(),
-      withInterceptors([
-        loadingInterceptor
-      ])
     )
   ],
   bootstrap: [AppComponent]

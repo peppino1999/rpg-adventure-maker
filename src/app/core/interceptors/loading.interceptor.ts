@@ -6,7 +6,7 @@ import {
 } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Observable, catchError, finalize, map, throwError } from 'rxjs';
-import { LoadingService } from '../services/loading.service';
+import { LoadingService } from '../../features/loading/loading.service';
 
 export const loadingInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
