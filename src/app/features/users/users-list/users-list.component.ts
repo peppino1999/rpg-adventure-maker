@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { UsersService } from '../../../core/services/users.service';
 import { EssentialComponent } from '../../../core/essentialComponent';
 import { userTableConfig } from '../../../core/configs';
 import { User } from '../../../core/models';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-users-list',
@@ -11,9 +11,10 @@ import { User } from '../../../core/models';
 })
 export class UsersListComponent extends EssentialComponent{
 
-   usersService = inject(UsersService);
    tableConfig = userTableConfig
-   users$ = this.usersService.getUsers();
+   users$ = this.route.data.pipe(
+    map(data => data['users'])
+   );
 
    goToDetail(user:User){
      this.router.navigate([user.id], {relativeTo: this.route})

@@ -1,6 +1,9 @@
 <div class="app-shell">
   <header>
      <h2>Welcome to crud application</h2>
+     @if(authService.isLoggedIn){
+       <button (click)="handleLogout()">logout</button>
+     }
   </header>
   <main>
     <app-loading>

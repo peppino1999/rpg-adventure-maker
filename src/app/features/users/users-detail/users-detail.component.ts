@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { UsersService } from '../../../core/services/users.service';
 import { EssentialComponent } from '../../../core/essentialComponent';
-import { catchError, takeUntil, throwError } from 'rxjs';
+import { catchError, map, takeUntil, throwError } from 'rxjs';
 import { userFormConfig } from '../../../core/configs';
 
 @Component({
@@ -13,9 +13,14 @@ export class UsersDetailComponent extends EssentialComponent {
   usersService = inject(UsersService);
   formConfig = userFormConfig;
 
-  user$ = this.usersService.getUser(this.routeParams['id']).pipe(
+  user$ = this.route.data.pipe(
+    map(
+      (data) => data['user']
+    ),
     catchError((error) => {
-      this.router.navigate(['/']);
+      this.router.navigate(['../'], {
+        relativeTo: this.route
+      });
       return throwError(() => error);
     })
   );

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { protectedGuard } from './core/guards/protected.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   {
     path: 'users',
     loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule),
+    canActivate: [protectedGuard]
   }
 ];
 

@@ -27,6 +27,7 @@ export class FormComponent<T> extends EssentialComponent implements OnInit, Afte
   @Input() startingValues!: T | null
   @Input() globalValidators!: ValidatorFn | ValidatorFn[] | null | undefined 
   @Output() onSubmit: EventEmitter<any> = new EventEmitter()
+  @Output() formState: EventEmitter<FormGroup<any>> = new EventEmitter()
   form!:FormGroup
 
   private generateForm(formConfig: FormConfig[]){
@@ -48,6 +49,13 @@ export class FormComponent<T> extends EssentialComponent implements OnInit, Afte
       this.form = new FormGroup(this.generateForm(this.formConfig), {
         validators: this.globalValidators
       })
+      if(this.form){
+        this.form.valueChanges.pipe(
+          takeUntil(this.destroy$)
+        ).subscribe(() =>{
+          this.formState.emit(this.form)
+        })
+      }
   }
 
   submit(){
