@@ -3,7 +3,14 @@
      <h2>Welcome to crud application</h2>
   </header>
   <main>
-    <router-outlet/>
+    <app-loading>
+      <ng-container loading>
+        ...loading
+      </ng-container>
+      <ng-container loaded>
+        <router-outlet/>
+      </ng-container>
+    </app-loading>
   </main>
   <footer>
     <p>© CRUD Application</p>

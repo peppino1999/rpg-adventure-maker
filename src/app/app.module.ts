@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 import { API_URL, LOGGEDIN_ROOT, SECURE_URL_CODE } from './core/tokens';
+import { SharedModule } from './shared/shared.module';
+import { loadingInterceptor } from './core/interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -12,7 +14,8 @@ import { API_URL, LOGGEDIN_ROOT, SECURE_URL_CODE } from './core/tokens';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [
     {
@@ -29,7 +32,9 @@ import { API_URL, LOGGEDIN_ROOT, SECURE_URL_CODE } from './core/tokens';
     },
     provideHttpClient(
       withFetch(),
-
+      withInterceptors([
+        loadingInterceptor
+      ])
     )
   ],
   bootstrap: [AppComponent]
