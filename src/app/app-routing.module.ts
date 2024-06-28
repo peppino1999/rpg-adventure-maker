@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { protectedGuard } from './core/guards/protected.guard';
+import { protectedGuard, unprotectedGuard } from './core/guards/protected.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthFeatureModule)
+    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthFeatureModule),
+    canActivate: [unprotectedGuard]
   },
   {
     path: 'users',

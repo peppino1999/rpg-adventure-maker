@@ -5,6 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { TableComponent } from './table/table.component';
 import { LoadingComponent } from './loading/loading.component';
+import { MaterialModule } from './material.module';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -13,15 +15,19 @@ import { LoadingComponent } from './loading/loading.component';
     FormComponent,
     ErrorComponent,
     TableComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
   exports: [
     FormComponent,
     ErrorComponent,
     TableComponent,
+    HeaderComponent,
+    MaterialModule
   ]
 })
 export class SharedModule { }

@@ -1,2 +1,6 @@
 <app-form [formConfig]="signInFormConfig" (onSubmit)="signIn($event)"></app-form>
-<button [routerLink]="['/signup']">Sign Up</button>
+
+<div class="button-container">
+
+    <button mat-flat-button color="accent" [routerLink]="['/signup']">Sign Up</button>
+</div>

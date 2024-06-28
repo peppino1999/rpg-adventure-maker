@@ -1,41 +1,42 @@
-@if( globalErrors && name && globalErrors['relatedFields'].includes(name) && globalErrors['passwordMismatch']){
+@if( control?.errors?.['required']){
     <p>
-        Le password non corrispondono
+        Campo obligatorio
     </p>
 }
 
-
-@if( !control?.valid && (control?.dirty || control?.touched)){
-
-    @if( control?.errors?.['required']){
-        <p>
-            Campo obligatorio
-        </p>
-    }
-
-    @if( control?.errors?.['email']){
-        <p>
-            Deve Essere una mail valida
-        </p>
-    }
-    
-    @if( control?.errors?.['pattern']){
-        <p>
-            @if(errorMessage){
-                {{errorMessage}}
-            }@else {
-                Deve rispettare il formato
-            }
-       
-        </p>
-    }
-
-    @if( control?.errors?.['minlength']){
-        <p>
-            ti mancano {{control?.errors?.['minlength'].requiredLength - control?.errors?.['minlength'].actualLength}}
-            caratteri
-        </p>
-    }
-
-
+@if( control?.errors?.['email']){
+    <p>
+        Deve Essere una mail valida
+    </p>
 }
+
+@if( control?.errors?.['pattern']){
+    <p>
+        @if(errorMessage){
+            {{errorMessage}}
+        }@else {
+            Deve rispettare il formato
+        }
+   
+    </p>
+}
+
+@if( control?.errors?.['minlength']){
+    <p>
+        ti mancano {{control?.errors?.['minlength'].requiredLength - control?.errors?.['minlength'].actualLength}}
+        caratteri
+    </p>
+}
+
+    
+    @if( globalErrors && name && globalErrors['relatedFields'].includes(name) && globalErrors['passwordMismatch']){
+        <p>
+            Le password non corrispondono
+        </p>
+    }
+
+
+
+
+
+

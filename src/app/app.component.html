@@ -1,14 +1,26 @@
-<div class="app-shell">
+<div class="app-shell mat-app-background">
   <header>
-     <h2>Welcome to crud application</h2>
-     @if(authService.isLoggedIn){
-       <button (click)="handleLogout()">logout</button>
-     }
+   <app-header>
+     <div toolbar-logo>
+      <h2>Welcome to crud application</h2>
+     </div>
+     <div toolbar-actions>
+      @if(authService.isLoggedIn){
+        <button mat-icon-button (click)="handleLogout()">
+          <mat-icon>power_settings_new</mat-icon>
+        </button>
+      }
+     </div>
+    </app-header>
+
+
   </header>
   <main>
     <app-loading>
       <ng-container loading>
-        ...loading
+        <div class="spinner">
+          <mat-spinner></mat-spinner>
+        </div>
       </ng-container>
       <ng-container loaded>
         <router-outlet/>

@@ -3,12 +3,14 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { API_URL } from '../tokens';
 import { ApiCallParams } from '../models';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable()
 export class EssentialService {
   // dependencies
   private http = inject(HttpClient);
   protected apiBase = inject(API_URL);
+  protected snackbar = inject(MatSnackBar);
 
   // variabili configurabili
   protected apiPath = '';
@@ -17,10 +19,18 @@ export class EssentialService {
   }
 
   // metodo che permette di chiamare gli endpoint api
-  protected apiCall<T>(params: ApiCallParams): Observable<T> {
+  protected apiCall<T>(
+    params: ApiCallParams,
+    errorMessage: string | null = null
+  ): Observable<T> {
     return this.http.request<T>(params.type, params.url, params.options).pipe(
       catchError((err) => {
-        return throwError(() => new Error(err))
+        this.snackbar.open(errorMessage ? errorMessage : err.message, 'chiudi', {
+          duration: 2000,
+          // verticalPosition: 'top',
+          // horizontalPosition: 'start'
+        });
+        return throwError(() => new Error(err));
       })
     );
   }

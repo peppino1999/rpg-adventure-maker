@@ -33,7 +33,7 @@ export class FormComponent<T> extends EssentialComponent implements OnInit, Afte
   private generateForm(formConfig: FormConfig[]){
     const configOutput : Record<any,FormControl> = {}
     formConfig.forEach( (item) =>{
-      configOutput[item.name] =  new FormControl('', item.validators)
+      configOutput[item.name] =  new FormControl(null, item.validators)
     })
     return configOutput
   }
@@ -53,6 +53,9 @@ export class FormComponent<T> extends EssentialComponent implements OnInit, Afte
         this.form.valueChanges.pipe(
           takeUntil(this.destroy$)
         ).subscribe(() =>{
+          // if(this.form.errors){
+          //   this.form.errors?['relatedFields']
+          // }
           this.formState.emit(this.form)
         })
       }

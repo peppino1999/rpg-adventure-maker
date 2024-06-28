@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { LoadingModule } from './shared/loading/loading.module';
 import { AuthModule } from './shared/auth/auth.module';
 import { ApiClientModule } from './core/modules/apiClientModule';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,9 @@ import { ApiClientModule } from './core/modules/apiClientModule';
     AuthModule,
     ApiClientModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    provideAnimationsAsync()
+  ]
 })
 export class AppModule { }

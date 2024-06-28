@@ -3,6 +3,7 @@ import { UsersService } from '../users.service';
 import { EssentialComponent } from '../../../core/components/essentialComponent';
 import { catchError, map, takeUntil, throwError } from 'rxjs';
 import { userFormConfig } from '../../../core/configs';
+import { LOGGEDIN_ROOT } from '../../../core/tokens';
 
 @Component({
   selector: 'app-users-detail',
@@ -12,17 +13,17 @@ import { userFormConfig } from '../../../core/configs';
 export class UsersDetailComponent extends EssentialComponent {
   usersService = inject(UsersService);
   formConfig = userFormConfig;
-
+  loggedUser = inject(LOGGEDIN_ROOT)
   user$ = this.route.data.pipe(
     map(
       (data) => data['user']
     ),
-    catchError((error) => {
-      this.router.navigate(['../'], {
-        relativeTo: this.route
-      });
-      return throwError(() => error);
-    })
+    // catchError((error) => {
+    //   this.router.navigate([this.loggedUser], {
+    //     relativeTo: this.route
+    //   });
+    //   return throwError(() => error);
+    // })
   );
 
   deleteUser(user: any) {

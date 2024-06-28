@@ -26,7 +26,7 @@ export class UsersService extends EssentialService {
     return this.apiCall<User>({
       type: 'GET',
       url: `${this.apiUrl}/${id}`,
-    });
+    }, 'utente non trovato');
   }
 
   addUser(user: User): Observable<User> {

@@ -1,21 +1,35 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
-    @for(field of formConfig; track $index){
-        <fieldset>
-            <label [for]="field.name">{{field.label}}</label>
-            <hr />
-            @switch (field.type) {
-                @case ('text') {
-                    <input [formControlName]="field.name" [id]="field.name"/>
-                }
-                @case ('password') {
-                    <input type="password" [formControlName]="field.name" [id]="field.name"/>
-                }
-                @case ('textarea'){
-                    <textarea [formControlName]="field.name" [id]="field.name"></textarea>
-                }
-            }
-            <app-error [control]="form.get(field.name)" [errorMessage]="field?.errorMessage" [globalErrors]="form.errors" [name]="field.name"/>
-        </fieldset>
-    }
-  <button type="submit" [disabled]="!form.valid">Submit Form</button>
+  @for(field of formConfig; track $index){
+  <mat-form-field class="form-input">
+    <mat-label>{{ field.label }}</mat-label>
+    @switch (field.type) { @case ('text') {
+    <input matInput [formControlName]="field.name" [id]="field.name" />
+    } @case ('password') {
+    <input
+      matInput
+      type="password"
+      [formControlName]="field.name"
+      [id]="field.name"
+    />
+    } @case ('textarea'){
+    <textarea
+      matInput
+      [formControlName]="field.name"
+      [id]="field.name"
+    ></textarea>
+    } }
+
+    <mat-error>
+      <app-error
+        [control]="form.get(field.name)"
+        [errorMessage]="field?.errorMessage"
+        [globalErrors]="form.errors"
+        [name]="field.name"
+      />
+    </mat-error>
+  </mat-form-field>
+  }
+  <div class="button-container">
+      <button mat-flat-button type="submit" [disabled]="!form.valid">Submit Form</button>
+  </div>
 </form>
