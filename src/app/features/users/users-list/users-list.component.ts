@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { EssentialComponent } from '../../../core/essentialComponent';
+import { EssentialComponent } from '../../../core/components/essentialComponent';
 import { userTableConfig } from '../../../core/configs';
 import { User } from '../../../core/models';
 import { map } from 'rxjs';

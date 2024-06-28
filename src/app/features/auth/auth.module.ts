@@ -21,4 +21,4 @@ import { SharedModule } from '../../shared/shared.module';
   ],
   bootstrap: [AuthComponent]
 })
-export class AuthModule { }
+export class AuthFeatureModule { }

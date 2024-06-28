@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
-import { Observable, catchError } from 'rxjs';
-import { API_URL } from './tokens';
-import { ApiCallParams } from './models';
+import { Observable, catchError, throwError } from 'rxjs';
+import { API_URL } from '../tokens';
+import { ApiCallParams } from '../models';
 
 @Injectable()
 export class EssentialService {
@@ -20,8 +20,7 @@ export class EssentialService {
   protected apiCall<T>(params: ApiCallParams): Observable<T> {
     return this.http.request<T>(params.type, params.url, params.options).pipe(
       catchError((err) => {
-        alert(err);
-        throw new Error(err);
+        return throwError(() => new Error(err))
       })
     );
   }

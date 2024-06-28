@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { globalSignupFormConfig, userSignupFormConfig } from '../../../core/configs';
 import { User } from '../../../core/models';
-import { EssentialComponent } from '../../../core/essentialComponent';
+import { EssentialComponent } from '../../../core/components/essentialComponent';
 import { CanDeactivateComponent } from '../../../core/guards/can-exit.guard';
 import { FormGroup } from '@angular/forms';
+import { AuthService } from '../../../shared/auth/auth.service';
+import { take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-signup',
@@ -13,11 +15,24 @@ import { FormGroup } from '@angular/forms';
 export class SignupComponent extends EssentialComponent implements CanDeactivateComponent{
   formConfig = userSignupFormConfig
   globalValidators = globalSignupFormConfig
+  authService = inject(AuthService)
   canLeave = true
 
   createUser(user: User){
     const {confirmPassword, ...currentUser} = user
-    // gestiamo la creazione dell'utente
+    this.authService.signup(currentUser).pipe(
+      takeUntil(this.destroy$)
+    ).subscribe({
+      next: (data)=>{
+        this.canLeave = true
+        this.router.navigate(['/'])
+      },
+      error: (err) =>{
+        console.log('erroneous', err.message)
+      }
+    }
+    )
+
   }
 
   canDeactivate(){
@@ -25,8 +40,8 @@ export class SignupComponent extends EssentialComponent implements CanDeactivate
   }
 
   monitorFormState(form: FormGroup){
-    console.log(!(form.touched && form.dirty))
-    this.canLeave = !(form.touched && form.dirty) || form.valid
+    console.log(form.valid)
+    this.canLeave = !(form.touched && form.dirty) && form.valid
   }
 
 }

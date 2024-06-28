@@ -1,6 +1,6 @@
 import { Component, OnDestroy, inject } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { Subject } from "rxjs";
+import { Observable, Subject, takeUntil } from "rxjs";
 
 
 @Component({
@@ -15,6 +15,12 @@ export class EssentialComponent implements OnDestroy{
     ngOnDestroy(): void {
         this.destroy$.next(null)
         this.destroy$.complete()
+    }
+
+    takeUntilDestroy(obs:Observable<any>): Observable<any>{
+        return obs.pipe(
+            takeUntil(this.destroy$)
+        )
     }
 
 }

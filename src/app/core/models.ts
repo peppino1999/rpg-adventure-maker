@@ -18,6 +18,11 @@ export interface LoginInfo {
     password: string
 }
 
+export interface UserAuthRes {
+    accessToken: string,
+    user: User
+}
+
 export type User = {
     id: number,
     firstName: string,

@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { UsersService } from '../../../core/services/users.service';
-import { EssentialComponent } from '../../../core/essentialComponent';
+import { UsersService } from '../users.service';
+import { EssentialComponent } from '../../../core/components/essentialComponent';
 import { catchError, map, takeUntil, throwError } from 'rxjs';
 import { userFormConfig } from '../../../core/configs';
 

@@ -3,7 +3,7 @@ import { AfterViewInit, ChangeDetectionStrategy, Component, EventEmitter, Input,
 import { AbstractControlOptions, FormControl, FormGroup, ReactiveFormsModule, ValidatorFn } from '@angular/forms';
 import { takeUntil } from 'rxjs';
 import { ErrorComponent } from '../error/error.component';
-import { EssentialComponent } from '../../core/essentialComponent';
+import { EssentialComponent } from '../../core/components/essentialComponent';
 
 
 export interface FormConfig {

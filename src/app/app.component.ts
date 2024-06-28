@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from './core/services/auth.service';
-import { EssentialComponent } from './core/essentialComponent';
+import { AuthService } from './shared/auth/auth.service';
+import { EssentialComponent } from './core/components/essentialComponent';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +11,9 @@ export class AppComponent extends EssentialComponent {
   title = 'crud-project';
   authService = inject(AuthService)
 
-  handleLogout(){
-    this.authService.logout()
+  async handleLogout(){
+    await this.authService.logout()
     this.router.navigate(['/'])
   }
-
-
 
 }

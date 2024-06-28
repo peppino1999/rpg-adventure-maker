@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { ActivatedRoute, ResolveFn, Router } from '@angular/router';
-import { UsersService } from '../services/users.service';
+import { UsersService } from '../../features/users/users.service';
 import { Observable, catchError, throwError } from 'rxjs';
 import { User } from '../models';
 

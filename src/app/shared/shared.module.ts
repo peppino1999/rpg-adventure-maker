@@ -4,7 +4,7 @@ import { FormComponent } from './form/form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { TableComponent } from './table/table.component';
-import { LoadingComponent } from '../features/loading/loading.component';
+import { LoadingComponent } from './loading/loading.component';
 
 
 

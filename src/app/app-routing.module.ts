@@ -5,7 +5,7 @@ import { protectedGuard } from './core/guards/protected.guard';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthModule)
+    loadChildren: () => import('./features/auth/auth.module').then(m => m.AuthFeatureModule)
   },
   {
     path: 'users',

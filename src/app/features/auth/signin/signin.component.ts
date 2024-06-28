@@ -1,10 +1,10 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { userLoginFormConfig } from '../../../core/configs';
 import { pipe, takeUntil } from 'rxjs';
-import { EssentialComponent } from '../../../core/essentialComponent';
+import { EssentialComponent } from '../../../core/components/essentialComponent';
 import { LoginInfo } from '../../../core/models';
 import { LOGGEDIN_ROOT } from '../../../core/tokens';
-import { AuthService } from '../../../core/services/auth.service';
+import { AuthService } from '../../../shared/auth/auth.service';
 
 @Component({
   selector: 'app-signin',
@@ -14,14 +14,15 @@ import { AuthService } from '../../../core/services/auth.service';
 export class SigninComponent extends EssentialComponent implements OnInit {
   signInFormConfig = userLoginFormConfig;
   loginRoute = inject(LOGGEDIN_ROOT);
-  authService = inject(AuthService)
+  authService = inject(AuthService);
 
   ngOnInit() {
-   // gestiamo il caso in cui l'utente è già loggato
+    // gestiamo il caso in cui l'utente è già loggato
   }
   signIn(loginInfo: LoginInfo) {
     // effettuiamo il login
-    this.authService.login()
-    this.router.navigate([this.loginRoute]);
+    this.takeUntilDestroy(this.authService.login(loginInfo)).subscribe({
+      next: () => this.router.navigate([this.loginRoute]),
+    });
   }
 }
