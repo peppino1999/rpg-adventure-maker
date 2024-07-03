@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+@use "./m3-theme.scss" as m3;
+@include mat.core();
+
+$customTheme: m3.$light-theme;
+
+@include mat.color-variants-backwards-compatibility($customTheme);
+@include mat.typography-hierarchy($customTheme); // typography styles c
+
+:root {
+  @include mat.core-theme($customTheme);
+  @include mat.all-component-themes($customTheme);
+  // --mat-app-background-color: #{mat.get-theme-color($customTheme, background)};
+  --mat-toolbar-container-background-color: #{mat.get-theme-color($customTheme, primary, 50)};
+  --mat-toolbar-container-text-color: #{mat.get-theme-color($customTheme, primary, 100)};
+
+  // background customization
+  font-family: "Roboto", sans-serif;
+
+}
+
+

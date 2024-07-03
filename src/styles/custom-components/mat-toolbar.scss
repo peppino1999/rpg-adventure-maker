@@ -1,0 +1,9 @@
+@use "@angular/material" as mat;
+@use "../m3-theme.scss" as m3;
+@include mat.core();
+
+.mat-toolbar {
+    .mat-mdc-icon-button {
+      color: mat.get-theme-color(m3.$light-theme, primary, 100);
+    }
+  }

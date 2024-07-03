@@ -1,6 +1,6 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
   @for(field of formConfig; track $index){
-  <mat-form-field class="form-input">
+  <mat-form-field class="form-input" subscriptSizing="dynamic">
     <mat-label>{{ field.label }}</mat-label>
     @switch (field.type) { @case ('text') {
     <input matInput [formControlName]="field.name" [id]="field.name" />
