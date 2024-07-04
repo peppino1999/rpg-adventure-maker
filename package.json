@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "mock-server": "json-server db.json",
+    "mock-server": "node json-server.js",
+    "mock-server-dev": "nodemon json-server.js",
     "dev": "concurrently \"npm run mock-server\" \"npm run start\"",
     "test": "ng test"
   },
