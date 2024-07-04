@@ -8,6 +8,11 @@ import { LoadingModule } from './shared/loading/loading.module';
 import { AuthModule } from './shared/auth/auth.module';
 import { ApiClientModule } from './core/modules/apiClientModule';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     SharedModule,
     LoadingModule,
     AuthModule,
-    ApiClientModule
+    ApiClientModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule
   ],
   bootstrap: [AppComponent],
   providers: [

@@ -8,6 +8,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogActions, MatDialogModule, MatDialogTitle} from '@angular/material/dialog';
+import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const components = [
   MatButtonModule,
@@ -19,7 +21,8 @@ const components = [
   MatTableModule,
   MatSnackBarModule,
   MatDialogModule,
-
+  MatSortModule,
+  MatPaginatorModule
 ];
 
 @NgModule({

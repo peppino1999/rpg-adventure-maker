@@ -3,7 +3,7 @@
 @use "./m3-theme.scss" as m3;
 @include mat.core();
 
-$customTheme: m3.$light-theme;
+$customTheme: m3.$dark-theme;
 
 @include mat.color-variants-backwards-compatibility($customTheme);
 @include mat.typography-hierarchy($customTheme); // typography styles c
@@ -11,7 +11,7 @@ $customTheme: m3.$light-theme;
 :root {
   @include mat.core-theme($customTheme);
   @include mat.all-component-themes($customTheme);
-  // --mat-app-background-color: #{mat.get-theme-color($customTheme, background)};
+  // --mat-app-background-color: #{mat.get-theme-color($customTheme, primary, 10)};
   --mat-toolbar-container-background-color: #{mat.get-theme-color($customTheme, primary, 50)};
   --mat-toolbar-container-text-color: #{mat.get-theme-color($customTheme, primary, 100)};
 

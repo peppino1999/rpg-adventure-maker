@@ -1,3 +1,13 @@
+
+
+<input 
+    type="number" 
+    [(ngModel)]="workerResponse" 
+    placeholder="place a number"
+    >
+
+    <button mat-button (click)="testWorker()">test</button>
+
 <app-table [data]="users$ | async" [columns]="tableConfig" (onAction)="goToDetail($event)"/>
 
 

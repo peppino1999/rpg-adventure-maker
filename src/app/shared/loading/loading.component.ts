@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { LoadingService } from './loading.service';
 
 @Component({
@@ -10,7 +10,8 @@ import { LoadingService } from './loading.service';
     <ng-content select="[loaded]"/>
   }
   `,
-  styleUrl: './loading.component.scss'
+  styleUrl: './loading.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoadingComponent {
   loadingService = inject(LoadingService)

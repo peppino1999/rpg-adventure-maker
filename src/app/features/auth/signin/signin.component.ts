@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
 import { userLoginFormConfig } from '../../../core/configs';
 import { pipe, takeUntil } from 'rxjs';
 import { EssentialComponent } from '../../../core/components/essentialComponent';
@@ -10,6 +10,7 @@ import { AuthService } from '../../../shared/auth/auth.service';
   selector: 'app-signin',
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SigninComponent extends EssentialComponent implements OnInit {
   signInFormConfig = userLoginFormConfig;

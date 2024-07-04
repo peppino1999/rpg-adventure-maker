@@ -1,5 +1,5 @@
 @use "@angular/material" as mat;
-@use "../m3-theme.scss" as m3;
+@use "../theme/m3-theme.scss" as m3;
 @include mat.core();
 
 .mat-toolbar {

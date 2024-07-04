@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   globalSignupFormConfig,
   userSignupFormConfig,
@@ -9,37 +9,15 @@ import { CanDeactivateComponent } from '../../../core/guards/can-exit.guard';
 import { FormGroup } from '@angular/forms';
 import { AuthService } from '../../../shared/auth/auth.service';
 import { take, takeUntil } from 'rxjs';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmComponent } from '../../../shared/confirm/confirm.component';
 
-@Component({
-  selector: 'app-signup-confirm',
-  template: `
-    <h2 mat-dialog-title>Conferma</h2>
-    <mat-dialog-content>
-      sei sicuro di voler abbandonare la pagina?
-    </mat-dialog-content>
-    <mat-dialog-actions>
-      <button mat-button (click)="confirm()">Procedi</button>
-      <button mat-button color="danger" (click)="decline()">Annulla</button>
-    </mat-dialog-actions>
-  `,
-})
-export class SignupConfirmDialog {
-
-  dialogRef = inject(MatDialogRef)
-
-  confirm(){
-    this.dialogRef.close(true)
-  }
-  decline(){
-    this.dialogRef.close(false)
-  }
-}
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignupComponent
   extends EssentialComponent
@@ -50,6 +28,8 @@ export class SignupComponent
   authService = inject(AuthService);
   canLeave = true;
   dialog = inject(MatDialog)
+  dialogTitle: string = 'Attenzione!'
+  dialogContent: string = 'I tuoi dati andranno persi'
 
   createUser(user: User) {
     const { confirmPassword, ...currentUser } = user;
@@ -67,29 +47,12 @@ export class SignupComponent
       });
   }
 
-  goBack(){
-    if(!this.canLeave){
-      const dialogRef = this.dialog.open(SignupConfirmDialog)
-      dialogRef.afterClosed().subscribe(
-        (dialogResult) =>{
-          this.canLeave = dialogResult
-          if (this.canLeave){
-            this.router.navigate(['./'])
-          }
-       
-        }
-      )
-    }else{
-      this.router.navigate(['./'])
-    }
-    
-  }
+ 
   canDeactivate() {
     return this.canLeave;
   }
 
   monitorFormState(form: FormGroup) {
-    console.log(form.valid);
 
     this.canLeave = !(form.touched && form.dirty) && form.valid;
   }

@@ -4,6 +4,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UsersDetailComponent } from './users-detail/users-detail.component';
 import { UsersComponent } from './users.component';
 import { userResolver, usersResolver } from '../../core/resolvers/user.resolver';
+import { canExitGuard } from '../../core/guards/can-exit.guard';
 
 const routes: Routes = [
     {
@@ -22,7 +23,8 @@ const routes: Routes = [
                 component: UsersDetailComponent,
                 resolve: {
                     user: userResolver
-                }
+                },
+                canDeactivate: [canExitGuard]
             }
         ]
     }
