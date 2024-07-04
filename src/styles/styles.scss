@@ -1,6 +1,10 @@
 
 // @include mat.typography-hierarchy($theme);
+@import "./variables.scss";
 @import "./theme/theme.scss";
+
 @import "./custom-components/mat-toolbar.scss";
+@import "./custom-components/mat-card.scss";
+@import "./custom-components/footer.scss";
 @import "resets.scss";
 

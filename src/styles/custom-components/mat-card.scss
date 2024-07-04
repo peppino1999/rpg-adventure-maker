@@ -1,0 +1,8 @@
+.card{
+    @each $key, $value in $breakpoints{
+        &_#{$key}{
+            max-width: $value;
+            margin: 0 auto;
+        }
+    }
+}

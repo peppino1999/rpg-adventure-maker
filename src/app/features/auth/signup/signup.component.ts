@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import {
-  globalSignupFormConfig,
-  userSignupFormConfig,
-} from '../../../core/configs';
-import { User } from '../../../core/models';
+
 import { EssentialComponent } from '../../../core/components/essentialComponent';
 import { CanDeactivateComponent } from '../../../core/guards/can-exit.guard';
 import { FormGroup } from '@angular/forms';
-import { AuthService } from '../../../shared/auth/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 import { take, takeUntil } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmComponent } from '../../../shared/confirm/confirm.component';
+import { globalSignupFormConfig } from '../../../core/configs/auth';
+import { userSignupFormConfig } from '../../../core/configs/users';
+import { User } from '../../../core/models/users';
 
 
 @Component({

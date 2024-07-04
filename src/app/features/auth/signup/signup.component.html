@@ -1,7 +1,15 @@
-<h1>Create User</h1>
-<button [routerLink]="['/']">Back</button>
-<app-form 
-    [formConfig]="formConfig" 
-    (onSubmit)="createUser($event)" 
-    (formState)="monitorFormState($event)"
-    [globalValidators]="globalValidators">
+<mat-card class="card_md">
+  <mat-card-header><h1>Create User</h1></mat-card-header>
+  <mat-card-content>
+    <app-form
+      [formConfig]="formConfig"
+      (onSubmit)="createUser($event)"
+      (formState)="monitorFormState($event)"
+      [globalValidators]="globalValidators"
+    >
+    </app-form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="/">Sign In</button>
+  </mat-card-actions>
+</mat-card>

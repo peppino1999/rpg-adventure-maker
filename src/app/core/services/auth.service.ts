@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { EssentialService } from '../../core/services/essentialService';
-import { LoginInfo, User, UserAuthRes } from '../../core/models';
+import { EssentialService } from './essentialService';
 import { tap } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
+import { LoginInfo } from '../models/auth';
+import { User, UserAuthRes } from '../models/users';
 
 @Injectable({
   providedIn: 'root',

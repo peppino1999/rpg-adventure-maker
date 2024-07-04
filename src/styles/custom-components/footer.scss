@@ -1,0 +1,7 @@
+@use "@angular/material" as mat;
+@use "../theme/m3-theme.scss" as m3;
+@include mat.core();
+
+footer{
+    background-color: mat.get-theme-color(m3.$light-theme, primary, 98);
+}

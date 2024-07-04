@@ -1,6 +1,6 @@
 import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgModule } from "@angular/core";
-import { API_URL } from "../tokens";
+import { API_URL } from "../configs/tokens";
 
 @NgModule({
  providers:[

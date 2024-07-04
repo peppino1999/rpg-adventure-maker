@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, Component, OnInit, inject } from '@angular/core';
-import { userLoginFormConfig } from '../../../core/configs';
 import { pipe, takeUntil } from 'rxjs';
 import { EssentialComponent } from '../../../core/components/essentialComponent';
-import { LoginInfo } from '../../../core/models';
-import { LOGGEDIN_ROOT } from '../../../core/tokens';
-import { AuthService } from '../../../shared/auth/auth.service';
+import { LOGGEDIN_ROOT } from '../../../core/configs/tokens';
+import { AuthService } from '../../../core/services/auth.service';
+import { userLoginFormConfig } from '../../../core/configs/users';
+import { LoginInfo } from '../../../core/models/auth';
 
 @Component({
   selector: 'app-signin',

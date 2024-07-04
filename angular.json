@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "crud-project": {
+    "rpg-adventure-maker": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -25,7 +25,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/crud-project",
+            "outputPath": "dist/rpg-adventure-maker",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -74,10 +74,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "crud-project:build:production"
+              "buildTarget": "rpg-adventure-maker:build:production"
             },
             "development": {
-              "buildTarget": "crud-project:build:development"
+              "buildTarget": "rpg-adventure-maker:build:development"
             }
           },
           "defaultConfiguration": "development",

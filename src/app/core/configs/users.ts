@@ -1,7 +1,8 @@
 import { ValidatorFn, Validators } from '@angular/forms';
-import { FormConfig } from '../shared/form/form.component';
-import { TableConfig } from '../shared/table/table.model';
-import { matchPasswordValidator } from './validators/matchPasswordValidator';
+import { FormConfig } from '../../shared/form/form.component';
+import { TableConfig } from '../../shared/table/table.model';
+import { matchPasswordValidator } from '../validators/matchPasswordValidator';
+
 
 export const userFormConfig: FormConfig[] = [
   {
@@ -109,6 +110,3 @@ export const userTableConfig: TableConfig[] = [
   },
 ];
 
-export const globalSignupFormConfig: ValidatorFn[] = [
-    matchPasswordValidator('password', 'confirmPassword'),
-  ];

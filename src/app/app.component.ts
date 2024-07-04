@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AuthService } from './shared/auth/auth.service';
+import { AuthService } from './core/services/auth.service';
 import { EssentialComponent } from './core/components/essentialComponent';
 
 @Component({
@@ -8,7 +8,7 @@ import { EssentialComponent } from './core/components/essentialComponent';
   styleUrl: './app.component.scss'
 })
 export class AppComponent extends EssentialComponent {
-  title = 'crud-project';
+  title = 'adventure-maker';
   authService = inject(AuthService)
 
   async handleLogout(){

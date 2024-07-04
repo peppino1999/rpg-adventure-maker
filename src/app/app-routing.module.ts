@@ -9,8 +9,8 @@ const routes: Routes = [
     canActivate: [unprotectedGuard]
   },
   {
-    path: 'users',
-    loadChildren: () => import('./features/users/users.module').then(m => m.UsersModule),
+    path: 'home',
+    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
     canActivate: [protectedGuard]
   },
 ];

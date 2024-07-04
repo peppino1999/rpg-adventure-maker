@@ -1,6 +1,11 @@
-<app-form [formConfig]="signInFormConfig" (onSubmit)="signIn($event)"></app-form>
-
-<div class="button-container">
-
-    <button mat-flat-button color="secondary" [routerLink]="['/signup']">Sign Up</button>
-</div>
+<mat-card class="card_sm">
+  <mat-card-content>
+    <app-form
+      [formConfig]="signInFormConfig"
+      (onSubmit)="signIn($event)"
+    ></app-form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button routerLink="/signup">Sign Up</button>
+  </mat-card-actions>
+</mat-card>

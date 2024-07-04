@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { API_URL } from '../tokens';
-import { ApiCallParams } from '../models';
+import { API_URL } from '../configs/tokens';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiCallParams } from '../models/api-client';
 
 @Injectable()
 export class EssentialService {
