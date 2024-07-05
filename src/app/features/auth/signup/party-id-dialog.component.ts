@@ -15,7 +15,7 @@ import { MatSnackBar } from "@angular/material/snack-bar";
         </button>
       </div>
       <div mat-dialog-actions>
-        <button mat-button-icon [mat-dialog-close]="true">Ok</button>
+        <button mat-flat-button [mat-dialog-close]="true">Ok</button>
       </div>
     `,
   })

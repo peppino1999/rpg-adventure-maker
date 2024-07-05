@@ -1,6 +1,7 @@
 import { ValidatorFn, Validators } from '@angular/forms';
 import { matchPasswordValidator } from '../validators/matchPasswordValidator';
 import { FormConfig } from '../../shared/form/form.component';
+import { UserTypes } from '../models/users';
 
 export const globalSignupFormConfig: ValidatorFn[] = [
   matchPasswordValidator('password', 'confirmPassword'),
@@ -31,8 +32,8 @@ export const signUpConfig: FormConfig[] = [
     label: 'Tipo di account',
     type: 'select',
     options: [
-      { label: 'Giocatore', value: 'player' },
-      { label: 'Master', value: 'master' },
+      { label: 'Giocatore', value: UserTypes.PLAYER },
+      { label: 'Master', value: UserTypes.MASTER },
     ],
     validators: [Validators.required],
 
