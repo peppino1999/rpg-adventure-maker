@@ -2,23 +2,34 @@
   @for(field of formConfig; track $index){
   <mat-form-field class="form-input" subscriptSizing="dynamic">
     <mat-label>{{ field.label }}</mat-label>
-    @switch (field.type) { @case ('text') {
-    <input matInput [formControlName]="field.name" [id]="field.name" />
-    } @case ('password') {
-    <input
-      matInput
-      type="password"
-      [formControlName]="field.name"
-      [id]="field.name"
-    />
-    } @case ('textarea'){
-    <textarea
-      matInput
-      [formControlName]="field.name"
-      [id]="field.name"
-    ></textarea>
-    } }
-
+    @switch (field.type) { 
+      @case ('text') {
+        <input 
+          matInput 
+          [formControlName]="field.name" 
+          [id]="field.name" 
+        />
+      } @case ('password') {
+        <input
+          matInput
+          type="password"
+          [formControlName]="field.name"
+          [id]="field.name"
+        />
+      } @case ('textarea'){
+      <textarea
+        matInput
+        [formControlName]="field.name"
+        [id]="field.name"
+      ></textarea>
+      } @case ('select'){
+        <mat-select [formControlName]="field.name" [id]="field.name">
+          <mat-option *ngFor="let option of field.options" [value]="option.value">
+            {{ option.label }}
+          </mat-option>
+        </mat-select>
+      }
+    }
     <mat-error>
       <app-error
         [control]="form.get(field.name)"
@@ -30,6 +41,8 @@
   </mat-form-field>
   }
   <div class="button-container">
-      <button mat-flat-button type="submit" [disabled]="!form.valid">Submit Form</button>
+    <button mat-flat-button type="submit" [disabled]="!form.valid">
+      Submit Form
+    </button>
   </div>
 </form>

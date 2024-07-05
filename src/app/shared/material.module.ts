@@ -11,6 +11,7 @@ import {MatDialogActions, MatDialogModule, MatDialogTitle} from '@angular/materi
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCardModule } from '@angular/material/card';
+import { MatSelectModule } from '@angular/material/select';
 
 const components = [
   MatButtonModule,
@@ -24,7 +25,8 @@ const components = [
   MatDialogModule,
   MatSortModule,
   MatPaginatorModule,
-  MatCardModule
+  MatCardModule,
+  MatSelectModule
 ];
 
 @NgModule({

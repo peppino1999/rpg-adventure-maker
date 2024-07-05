@@ -6,6 +6,7 @@ import { AuthComponent } from './auth.component';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { SharedModule } from '../../shared/shared.module';
+import { PartyIdDialogComponent } from './signup/party-id-dialog.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { SharedModule } from '../../shared/shared.module';
     AuthComponent,
     SignupComponent,
     SigninComponent,
+    PartyIdDialogComponent
   ],
   imports: [
     CommonModule,

@@ -3,8 +3,8 @@ import { pipe, takeUntil } from 'rxjs';
 import { EssentialComponent } from '../../../core/components/essentialComponent';
 import { LOGGEDIN_ROOT } from '../../../core/configs/tokens';
 import { AuthService } from '../../../core/services/auth.service';
-import { userLoginFormConfig } from '../../../core/configs/users';
 import { LoginInfo } from '../../../core/models/auth';
+import { signInConfig } from '../../../core/configs/auth';
 
 @Component({
   selector: 'app-signin',
@@ -13,7 +13,7 @@ import { LoginInfo } from '../../../core/models/auth';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SigninComponent extends EssentialComponent implements OnInit {
-  signInFormConfig = userLoginFormConfig;
+  signInFormConfig = signInConfig;
   loginRoute = inject(LOGGEDIN_ROOT);
   authService = inject(AuthService);
 
