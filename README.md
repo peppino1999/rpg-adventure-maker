@@ -18,7 +18,8 @@ create in the root folder of you project a file called `db.json` and add the fol
 
 ```json
 {
-  "users": []
+  "users": [],
+  "events": [],
 }
 ```
 
