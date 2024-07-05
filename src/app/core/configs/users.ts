@@ -48,37 +48,7 @@ export const userFormConfig: FormConfig[] = [
   },
 ];
 
-export const userSignupFormConfig: FormConfig[] = [
-  ...userFormConfig,
-  {
-    name: 'password',
-    label: 'Password',
-    type: 'password',
-    validators: [Validators.required],
-  },
-  {
-    name: 'confirmPassword',
-    label: 'Conferma Password',
-    type: 'password',
-    validators: [Validators.required],
-  },
-];
 
-
-export const userLoginFormConfig: FormConfig[] = [ 
-    {
-        name: 'email',
-        label: 'Indirizzo Email',
-        type: 'text',
-        validators: [Validators.required, Validators.email],
-    },
-    {
-        name: 'password',
-        label: 'Password',
-        type: 'password',
-        validators: [Validators.required],
-    }
-]
 
 
 
