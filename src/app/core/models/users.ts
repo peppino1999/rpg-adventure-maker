@@ -5,7 +5,7 @@ export enum UserTypes {
 
 
 export type User = {
-    id: number,
+    id?: number,
     type: UserTypes.MASTER | UserTypes.PLAYER,  
     partyId?: string,
     firstName?: string,

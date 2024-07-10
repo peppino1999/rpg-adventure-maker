@@ -22,8 +22,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
   export class PartyIdDialogComponent {
     clipBoard = inject(Clipboard);
     snackBar = inject(MatSnackBar);
+    data = inject(MAT_DIALOG_DATA);
     constructor(
-      @Inject(MAT_DIALOG_DATA) public data: any,
     ) {}
     
     copyTioClipboard(partyId: string){
