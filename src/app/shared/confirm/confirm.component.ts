@@ -25,10 +25,9 @@ export type ConfirmDialogData = {
 export class ConfirmComponent {
 
   dialogRef = inject(MatDialogRef)
-
+  data = inject<ConfirmDialogData>(MAT_DIALOG_DATA)
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: ConfirmDialogData
   ){}
 
   confirm(){

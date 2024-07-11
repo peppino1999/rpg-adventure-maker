@@ -1,25 +1,36 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { EssentialService } from './essentialService';
-import { tap } from 'rxjs';
+import { BehaviorSubject, tap } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import { LoginInfo } from '../models/auth';
 import { User, UserAuthRes } from '../models/users';
+import { StorageClient } from '../utils/storage.utils';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService extends EssentialService {
+  storage =  new StorageClient(sessionStorage)
+
   constructor() {
     super();
     // this.apiPath = `users`;
   }
 
+  get currentUser() {
+    return JSON.parse(this.storage.get('user') || '{}');
+  }
+
   get isLoggedIn() {
-    return !!localStorage.getItem('token');
+    return !!this.storage.get('token');
   }
 
   get token(){
-    return localStorage.getItem('token')
+    return this.storage.get('token')
+  }
+
+  get partyId(){
+    return this.storage.get('partyId')
   }
 
   login(data: LoginInfo) {
@@ -34,7 +45,9 @@ export class AuthService extends EssentialService {
       },
     }).pipe(
       tap((res: UserAuthRes) => {
-        localStorage.setItem('token', res.accessToken);
+        this.storage.set('token', res.accessToken);
+        this.storage.set('partyId', res.user.partyId || '')
+        this.storage.set('user', JSON.stringify(res.user))
       })
     );
   }
@@ -50,7 +63,7 @@ export class AuthService extends EssentialService {
   }
 
   async logout() {
-    localStorage.removeItem('token');
+    this.storage.clear();
     await this.delay(100)
   }
 

@@ -11,8 +11,9 @@ import {
   signUpConfig,
   signupPlayerConfig,
 } from '../../../core/configs/auth';
-import { User } from '../../../core/models/users';
+import { User, UserTypes } from '../../../core/models/users';
 import { PartyIdDialogComponent } from './party-id-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 
@@ -26,14 +27,14 @@ export class SignupComponent
   extends EssentialComponent
   implements CanDeactivateComponent
 {
+  authService = inject(AuthService);
+  dialog = inject(MatDialog);
+  snackbBar = inject(MatSnackBar);
   formConfig = signUpConfig;
   globalValidators = globalSignupFormConfig;
-  authService = inject(AuthService);
   canLeave = true;
-  dialog = inject(MatDialog);
   dialogTitle: string = 'Attenzione!';
   dialogContent: string = 'I tuoi dati andranno persi';
-
   createUser(user: User) {
     const { confirmPassword, ...currentUser } = user;
     this.authService
@@ -43,17 +44,13 @@ export class SignupComponent
         next: (data:any) => {
           this.canLeave = true;
           if(data.user.type === 'master') {
-            this.dialog.open(PartyIdDialogComponent, {
-              data: {
-                title: 'Party ID',
-                content: 'Copia il tuo party Id per condividere la partita' ,
-                partyId: data.user.partyId
-              },
-            })
+            this.partyIdDialog(data);
           }else{
             this.router.navigate(['/']);
           }
-          
+          this.snackbBar.open('Registrazione avvenuta con successo', 'Chiudi', {
+            duration: 2000,
+          });
         },
         error: (err) => {
           console.log('erroneous', err.message);
@@ -61,6 +58,20 @@ export class SignupComponent
       });
   }
 
+  partyIdDialog(data:any) {
+    const dialog = this.dialog.open(PartyIdDialogComponent, {
+      data: {
+        title: 'Party ID',
+        content: 'Copia il tuo party Id per condividere la partita' ,
+        partyId: data.user.partyId
+      },
+    })
+    dialog.afterClosed().pipe(takeUntil(this.destroy$)).subscribe(
+      (result) => {
+        this.router.navigate(['/']);
+      }
+    )
+  }
 
   canDeactivate() {
     return this.canLeave;
@@ -68,7 +79,7 @@ export class SignupComponent
 
   monitorFormState(form: FormGroup) {
     console.log('form', form.value);
-    if (form.value.type === 'player') {
+    if (form.value.type === UserTypes.PLAYER) {
       this.formConfig = signupPlayerConfig;
     } else {
       this.formConfig = signUpConfig;
