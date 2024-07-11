@@ -14,6 +14,7 @@ export const loadingInterceptor: HttpInterceptorFn = (
 ): Observable<HttpEvent<unknown>> => {
   const loadingService = inject(LoadingService);
   // aumento il conteggio di loading
+  console.log('loadingService.loadingCount', loadingService.loadingCount)
   loadingService.loadingCount += 1;
   return next(req).pipe(
     catchError((_err) => {

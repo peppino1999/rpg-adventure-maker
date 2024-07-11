@@ -6,9 +6,10 @@ import { HomeComponent } from './home.component';
 import { SharedModule } from '../../shared/shared.module';
 import { MasterComponent } from './master/master.component';
 import { PlayerComponent } from './player/player.component';
+import { LoadingModule } from "../../shared/loading/loading.module";
 
 @NgModule({
   declarations: [HomeComponent, MasterComponent, PlayerComponent],
-  imports: [CommonModule, HomeRoutingModule, SharedModule],
+  imports: [CommonModule, HomeRoutingModule, SharedModule, LoadingModule],
 })
 export class HomeModule {}
