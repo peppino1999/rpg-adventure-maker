@@ -7,6 +7,7 @@ import { AuthService } from '../../core/services/auth.service';
     <pre>
       {{ authService.currentUser | json }}
     </pre>
+    <router-outlet/>
   `,
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
