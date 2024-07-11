@@ -35,7 +35,6 @@ export class SignupComponent
   canLeave = true;
   dialogTitle: string = 'Attenzione!';
   dialogContent: string = 'I tuoi dati andranno persi';
-
   createUser(user: User) {
     const { confirmPassword, ...currentUser } = user;
     this.authService

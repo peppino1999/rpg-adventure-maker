@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { SECURE_URL_CODE, LOGGEDIN_ROOT } from '../../core/configs/tokens';
+import { SECURE_URL_CODE, LOGGEDIN_ROOT, LOGGEDOUT_ROOT } from '../../core/configs/tokens';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { authInterceptor } from '../../core/interceptors/auth.interceptor';
 
@@ -11,7 +11,11 @@ import { authInterceptor } from '../../core/interceptors/auth.interceptor';
     },
     {
       provide: LOGGEDIN_ROOT,
-      useValue: '/home',
+      useValue: '/',
+    },
+    {
+      provide: LOGGEDOUT_ROOT,
+      useValue: '/auth'
     },
     provideHttpClient(
         withInterceptors([
