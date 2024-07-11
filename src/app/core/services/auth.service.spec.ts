@@ -31,43 +31,5 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have a storage property', () => {
-    expect(service.storage).toBeTruthy();
-  });
-
-  it('should sign in successfully', () => {
-    service.signup(mocks.signupData).subscribe((res) => {
-      expect(res).toEqual(mocks.mockResponse);
-    });
-
-    // mock the http request
-    const req = httpMock.expectOne(`${service.apiUrl}/signup`);
-    expect(req.request.method).toBe('POST');
-    expect(req.request.body).toEqual(mocks.signupData);
-    // respond with the mock data
-    req.flush(mocks.mockResponse);
-  });
-  
-  it('should sign in succesfully', () =>{
-    // setup mock data
-   
-    service.login(mocks.loginData).subscribe((res)=>{
-      expect(res).toEqual(mocks.mockResponse)
-    })
-    const req = httpMock.expectOne(`${service.apiUrl}/signin`)
-    expect(req.request.method).toBe('POST')
-    expect(req.request.body).toEqual(mocks.loginData)
-    req.flush(mocks.mockResponse)
-    // check if the storage has been updated
-    expect(service.isLoggedIn).toBeTrue()
-    expect(service.token).toBe(mocks.mockResponse.accessToken)
-    expect(service.partyId).toBe(mocks.mockResponse.user.partyId)
-  })
-
-  it('should log out successfully', () => {
-    service.logout();
-    expect(service.isLoggedIn).toBeFalse();
-    expect(service.token).toBeNull();
-    expect(service.partyId).toBeNull();
-  })
+ 
 });

@@ -20,6 +20,7 @@ import {
 import { Observable, Subscription, takeUntil } from 'rxjs';
 import { ErrorComponent } from '../error/error.component';
 import { EssentialComponent } from '../../core/components/essentialComponent';
+import { UserTypes } from '../../core/models/users';
 
 export interface FormConfig {
   name: string;
@@ -28,7 +29,7 @@ export interface FormConfig {
   connectedTo?: string;
   validators?: ValidatorFn | ValidatorFn[];
   errorMessage?: string;
-  options?: { label: string; value: string }[];
+  options?: { label: string; value: UserTypes }[];
 }
 
 @Component({

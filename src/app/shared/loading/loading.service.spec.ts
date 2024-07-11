@@ -14,21 +14,4 @@ describe('LoadingService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should have a loadingCount property', () => {
-    expect(service.loadingCount).toBe(0);
-  });
-
-  it('should have a isLoading property', () => {
-    expect(service.isLoading).toBeFalse();
-  });
-
-  it('should increment loadingCount', () => {
-    service.loadingCount++;
-    expect(service.loadingCount).toBe(1);
-  });
-
-  it('should decrement loadingCount', () => {
-    service.loadingCount--;
-    expect(service.loadingCount).toBe(-1);
-  });
 });

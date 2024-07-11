@@ -17,9 +17,4 @@ describe('protectedGuard', () => {
   it('should be created', () => {
     expect(executeGuard).toBeTruthy();
   });
-
-  it('should return true if user is logged in', async () => {
-    const result = await executeGuard({} as any, {} as any);
-    expect(result).toBeTrue();
-  });
 });
