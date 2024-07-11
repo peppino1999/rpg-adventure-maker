@@ -27,8 +27,7 @@ export class EssentialService {
       catchError((err) => {
         this.snackbar.open(errorMessage ? errorMessage : err.message, 'chiudi', {
           duration: 2000,
-          // verticalPosition: 'top',
-          // horizontalPosition: 'start'
+          verticalPosition: 'top',
         });
         return throwError(() => new Error(err));
       })
