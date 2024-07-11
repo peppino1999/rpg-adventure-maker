@@ -6,10 +6,15 @@ const router = jsonServer.router('db.json');
 const bodyParser = require('body-parser');
 
 app.db = router.db
+
+app.use(function(req, res, next){
+  setTimeout(next, 1000);
+});
 app.use(bodyParser.json());
 app.use(generatePartyId)
 app.use(auth)
 app.use(router)
+
 app.listen(3000, () => {
   console.log('JSON Server is running')
 })

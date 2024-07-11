@@ -2,16 +2,8 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { UserTypes } from '../models/users';
+import { checkDifferentUrlsAndRedirects } from '../utils/url.utils';
 
-function checkDifferentUrls(from:string,to:string,router:Router){
-  if (!from.startsWith(to)) {
-    router.navigate([to]);
-    return false;
-  }else{
-    return true;
-  }
-  
-}
 
 export const userTypeGuard: CanActivateFn = (route, state) => {
   const authService = inject(AuthService);
@@ -20,9 +12,9 @@ export const userTypeGuard: CanActivateFn = (route, state) => {
 
   switch (currentUser.type) {
     case UserTypes.MASTER:
-      return checkDifferentUrls(state.url,'/master',router);
+      return checkDifferentUrlsAndRedirects(state.url,'/master',router);
     case UserTypes.PLAYER:
-     return checkDifferentUrls(state.url,'/player',router);
+     return checkDifferentUrlsAndRedirects(state.url,'/player',router);
     default:
       router.navigate(['/']);
       return false;
