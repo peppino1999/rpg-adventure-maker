@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CharactersService } from '../../../core/services/characters.service';
 import { characterFormConfig } from '../../../core/configs/characters';
-import { Form } from '@angular/forms';
 import { Character } from '../../../core/models/characters';
 import { tap } from 'rxjs';
 

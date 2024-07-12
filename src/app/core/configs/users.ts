@@ -1,7 +1,7 @@
-import { ValidatorFn, Validators } from '@angular/forms';
+import { Validators } from '@angular/forms';
 import { FormConfig } from '../../shared/form/form.component';
 import { TableConfig } from '../../shared/table/table.model';
-import { matchPasswordValidator } from '../validators/matchPasswordValidator';
+
 
 
 export const userFormConfig: FormConfig[] = [
@@ -58,8 +58,23 @@ export const UpdateUserConfig: FormConfig[] = [
   {
     name: 'password',
     label: 'Password', 
-    type: 'password',
-  }
+    type: 'password'
+  },
+  {
+    name: 'firstname',
+    label: 'nome',
+    type: 'text'
+  },
+  {
+    name: 'lastname',
+    label: 'cognome',
+    type: 'text'
+  },
+  {
+    name: 'username',
+    label: 'username',
+    type: 'text'
+  },
 ]
 
 

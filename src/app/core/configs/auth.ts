@@ -8,7 +8,24 @@ export const globalSignupFormConfig: ValidatorFn[] = [
 ];
 
 export const signUpConfig: FormConfig[] = [
- 
+  {
+    name: 'firstname',
+    label: 'nome',
+    type: 'text',
+    validators: [Validators.required],
+  },
+  {
+    name: 'lastname',
+    label: 'cognome',
+    type: 'text',
+    validators: [Validators.required],
+  },
+  {
+    name: 'username',
+    label: 'username',
+    type: 'text',
+    validators: [Validators.required],
+  },
   {
     name: 'email',
     label: 'Indirizzo Email',
@@ -36,7 +53,6 @@ export const signUpConfig: FormConfig[] = [
       { label: 'Master', value: UserTypes.MASTER },
     ],
     validators: [Validators.required],
-
   },
 ];
 
@@ -48,7 +64,7 @@ export const signupPlayerConfig: FormConfig[] = [
     type: 'text',
     validators: [Validators.required],
   },
-]
+];
 
 export const signInConfig: FormConfig[] = [
   {
