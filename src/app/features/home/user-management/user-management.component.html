@@ -1,0 +1,9 @@
+<pre>
+    {{ userData$ | async | json }}
+</pre>
+
+<app-form 
+    [formConfig]="formConfig" 
+    [startingValues]="userData$ | async"
+    (onSubmit)="handleSubmit($event)"
+/>
