@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { MasterComponent } from './master/master.component';
 import { PlayerComponent } from './player/player.component';
+import { GestioneutentiComponent } from './gestioneutenti/gestioneutenti.component';
 
 const routes: Routes = [
   {
@@ -12,11 +13,20 @@ const routes: Routes = [
       {
         path: 'master',
         component: MasterComponent,
+      },  
+      {
+        path: 'master/user-managment',
+        component: GestioneutentiComponent
       },
       {
         path: 'player',
         component: PlayerComponent
+      },
+      {
+        path: 'player/user-managment',
+        component: GestioneutentiComponent
       }
+    
     ]
   },
 ];
