@@ -7,10 +7,10 @@ import { SharedModule } from '../../shared/shared.module';
 import { MasterComponent } from './master/master.component';
 import { PlayerComponent } from './player/player.component';
 import { LoadingModule } from "../../shared/loading/loading.module";
-import { GestioneutentiComponent } from './gestioneutenti/gestioneutenti.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 @NgModule({
-  declarations: [HomeComponent, MasterComponent, PlayerComponent, GestioneutentiComponent],
+  declarations: [HomeComponent, MasterComponent, PlayerComponent, UserManagementComponent],
   imports: [CommonModule, HomeRoutingModule, SharedModule, LoadingModule],
 })
 export class HomeModule {}

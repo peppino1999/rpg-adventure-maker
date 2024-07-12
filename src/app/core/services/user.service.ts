@@ -1,33 +1,35 @@
 import { inject, Injectable } from '@angular/core';
 import { EssentialService } from './essentialService';
-import { HttpParams } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { User, UserTypes } from '../models/users';
 import { map, Observable, tap } from 'rxjs';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { generateQueryParams } from '../utils/url.utils';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService extends EssentialService {
+  authService = inject(AuthService);
 
-  authService = inject(AuthService)
-  override snackbar = inject(MatSnackBar)
   constructor() {
     super();
     this.apiPath = `users`;
   }
 
   usersByPartyAndType(): Observable<User[]> {
-    return this.apiCall({
+  
+    return this.apiCall<User[]>({
       type: 'GET',
       url: `${this.apiUrl}`,
       // solo per scopo di dialogo con il json-server
-      options:{
-        params: new HttpParams()
-          .set('partyId', this.authService.partyId || '')
-          .set('type', UserTypes.PLAYER)
-      }
+      options: {
+        params: generateQueryParams(
+          {
+            partyId: this.authService.partyId || '',
+            type: UserTypes.PLAYER
+          }
+        )
+      },
     });
   }
 

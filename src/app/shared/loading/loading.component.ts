@@ -4,7 +4,7 @@ import { LoadingService } from './loading.service';
 @Component({
   selector: 'app-loading',
   template: `
-  @if(loadingService.isLoading){
+  @if(loadingService.loadingCount$ | async){
     <ng-content select="[loading]"/>
   }@else {
     <ng-content select="[loaded]"/>
@@ -15,4 +15,14 @@ import { LoadingService } from './loading.service';
 })
 export class LoadingComponent {
   loadingService = inject(LoadingService)
+
+  ngOnInit(){
+    this.loadingService.loadingCount$.subscribe(
+      (loadingCount) => {
+        console.log('isLoading', this.loadingService.isLoading)
+        console.log('loadingCount', loadingCount)
+      }
+    )
+  }
+
 }

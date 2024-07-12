@@ -1,26 +1,16 @@
-import { CommonModule } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   EventEmitter,
   Input,
-  OnChanges,
   OnInit,
   Output,
   SimpleChanges,
 } from '@angular/core';
-import {
-  AbstractControlOptions,
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  ValidatorFn,
-} from '@angular/forms';
-import { Observable, Subscription, takeUntil } from 'rxjs';
-import { ErrorComponent } from '../error/error.component';
+import { FormControl, FormGroup, ValidatorFn } from '@angular/forms';
+import { Subscription, takeUntil } from 'rxjs';
 import { EssentialComponent } from '../../core/components/essentialComponent';
-import { UserTypes } from '../../core/models/users';
 
 export interface FormConfig {
   name: string;
@@ -29,7 +19,7 @@ export interface FormConfig {
   connectedTo?: string;
   validators?: ValidatorFn | ValidatorFn[];
   errorMessage?: string;
-  options?: { label: string; value: UserTypes }[];
+  options?: { label: string; value: string }[];
 }
 
 @Component({
@@ -68,11 +58,11 @@ export class FormComponent<T>
         this.form.patchValue(formValue);
       }
       //reset subscription
-       this.refreshFormStateSubs(true);
+      this.refreshFormStateSubs(true);
     }
-    if(changes['startingValues']){
-      if(this.startingValues){
-        this.form.patchValue(this.startingValues)
+    if (changes['startingValues']) {
+      if (this.startingValues) {
+        this.form.patchValue(this.startingValues);
       }
     }
   }
@@ -111,6 +101,4 @@ export class FormComponent<T>
     }
     this.formStateSubs = this.subscribeToFormChanges();
   }
-
-
 }

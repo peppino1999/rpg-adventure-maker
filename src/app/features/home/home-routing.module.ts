@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { MasterComponent } from './master/master.component';
 import { PlayerComponent } from './player/player.component';
-import { GestioneutentiComponent } from './gestioneutenti/gestioneutenti.component';
+import { UserManagementComponent } from './user-management/user-management.component';
 
 const routes: Routes = [
   {
@@ -15,18 +15,17 @@ const routes: Routes = [
         component: MasterComponent,
       },  
       {
-        path: 'master/user-managment',
-        component: GestioneutentiComponent
+        path: 'master/user-management',
+        component: UserManagementComponent
       },
       {
         path: 'player',
         component: PlayerComponent
       },
       {
-        path: 'player/user-managment',
-        component: GestioneutentiComponent
-      }
-    
+        path: 'player/user-management',
+        component: UserManagementComponent
+      },     
     ]
   },
 ];

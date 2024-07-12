@@ -8,7 +8,7 @@ const bodyParser = require('body-parser');
 app.db = router.db
 
 app.use(function(req, res, next){
-  setTimeout(next, 1000);
+  setTimeout(next, 2000);
 });
 app.use(bodyParser.json());
 app.use(generatePartyId)
