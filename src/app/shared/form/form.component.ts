@@ -29,7 +29,7 @@ export interface FormConfig {
   connectedTo?: string;
   validators?: ValidatorFn | ValidatorFn[];
   errorMessage?: string;
-  options?: { label: string; value: UserTypes }[];
+  options?: { label: string; value: string }[];
 }
 
 @Component({

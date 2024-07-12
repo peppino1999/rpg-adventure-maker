@@ -20,6 +20,7 @@ create in the root folder of you project a file called `db.json` and add the fol
 {
   "users": [],
   "events": [],
+  "characters": []
 }
 ```
 

@@ -1,1 +1,5 @@
-<p>player works!</p>
+<app-form 
+    [formConfig]="formConfig" 
+    [startingValues]="character$ | async" 
+    (onSubmit)="handleSubmit($event)"
+/>
