@@ -9,6 +9,13 @@
           [formControlName]="field.name" 
           [id]="field.name" 
         />
+      } @case ('number') {
+        <input 
+          matInput 
+          type="number"
+          [formControlName]="field.name" 
+          [id]="field.name" 
+        />
       } @case ('password') {
         <input
           matInput

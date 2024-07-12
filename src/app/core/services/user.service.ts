@@ -4,6 +4,7 @@ import { HttpParams } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { User, UserTypes } from '../models/users';
 import { map, Observable, tap } from 'rxjs';
+import { generateQueryParams } from '../utils/url.utils';
 
 @Injectable({
   providedIn: 'root',
@@ -17,6 +18,12 @@ export class UserService extends EssentialService {
   }
 
   usersByPartyAndType(): Observable<User[]> {
+    console.log(generateQueryParams(
+      {
+        'partyID': this.authService.partyId || '',
+        'type': UserTypes.PLAYER
+      }
+    ))
     return this.apiCall<User[]>({
       type: 'GET',
       url: `${this.apiUrl}`,
