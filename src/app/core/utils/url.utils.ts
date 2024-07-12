@@ -15,10 +15,9 @@ export function checkDifferentUrlsAndRedirects(
 }
 
 export function generateQueryParams(params: Record<string, any>) {
-  const paramsOut = new HttpParams();
-
-  for (const param of Object.keys(paramsOut)) {
-    paramsOut.set(param, params[param]);
+  let paramsOut =new HttpParams();
+  for (const param of Object.keys(params)) {
+   paramsOut = paramsOut.set(param, params[param]);
   }
   return paramsOut;
 }

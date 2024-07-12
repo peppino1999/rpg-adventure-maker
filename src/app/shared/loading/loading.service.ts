@@ -7,6 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 export class LoadingService {
   private loadingCountSubject = new BehaviorSubject<number>(0)
   
+  get loadingCount$() {
+    return this.loadingCountSubject.asObservable()
+  }
   get loadingCount():number{
     return this.loadingCountSubject.value
   }

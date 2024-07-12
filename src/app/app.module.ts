@@ -33,7 +33,7 @@ import { AuthModule } from './core/modules/auth.module';
   ],
   bootstrap: [AppComponent],
   providers: [
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
   ]
 })
 export class AppModule { }
