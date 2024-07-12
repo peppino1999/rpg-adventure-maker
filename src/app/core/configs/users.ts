@@ -48,6 +48,20 @@ export const userFormConfig: FormConfig[] = [
   },
 ];
 
+export const UpdateUserConfig: FormConfig[] = [
+  {
+    name: 'email',
+    label: 'Indirizzo email',
+    type: 'text',
+    validators: [ Validators.required, Validators.email]
+  },
+  {
+    name: 'password',
+    label: 'Password', 
+    type: 'password',
+  }
+]
+
 
 
 

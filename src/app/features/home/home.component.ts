@@ -3,15 +3,10 @@ import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-home',
-  template: `
-    <pre>
-      {{ authService.currentUser | json }}
-    </pre>
-    <router-outlet/>
-  `,
+  templateUrl: './home.component.html',
   styles: ``,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomeComponent {
-  authService = inject(AuthService);
+  public authService = inject(AuthService);
 }

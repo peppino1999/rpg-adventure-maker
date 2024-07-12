@@ -68,7 +68,12 @@ export class FormComponent<T>
         this.form.patchValue(formValue);
       }
       //reset subscription
-      // this.refreshFormStateSubs(true);
+      this.refreshFormStateSubs(true);
+    }
+    if(changes['startingValues']){
+      if(this.startingValues){
+        this.form.patchValue(this.startingValues)
+      }
     }
   }
 
