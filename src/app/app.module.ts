@@ -14,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { AuthModule } from './core/modules/auth.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -29,7 +30,7 @@ import { AuthModule } from './core/modules/auth.module';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   bootstrap: [AppComponent],
   providers: [

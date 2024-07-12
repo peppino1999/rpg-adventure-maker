@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { UserService } from '../../../core/services/user.service';
 import { UpdateUserConfig } from '../../../core/configs/users';
-import { Form } from '@angular/forms';
 import { User } from '../../../core/models/users';
 import { tap } from 'rxjs';
 

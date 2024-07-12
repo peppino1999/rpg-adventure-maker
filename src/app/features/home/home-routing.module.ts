@@ -9,7 +9,8 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    children:[
+    children:[ 
+     
       {
         path: 'master',
         component: MasterComponent,
