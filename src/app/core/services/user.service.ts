@@ -18,20 +18,18 @@ export class UserService extends EssentialService {
   }
 
   usersByPartyAndType(): Observable<User[]> {
-    console.log(generateQueryParams(
-      {
-        'partyID': this.authService.partyId || '',
-        'type': UserTypes.PLAYER
-      }
-    ))
+  
     return this.apiCall<User[]>({
       type: 'GET',
       url: `${this.apiUrl}`,
       // solo per scopo di dialogo con il json-server
       options: {
-        params: new HttpParams()
-          .set('partyId', this.authService.partyId || '')
-          .set('type', UserTypes.PLAYER),
+        params: generateQueryParams(
+          {
+            partyId: this.authService.partyId || '',
+            type: UserTypes.PLAYER
+          }
+        )
       },
     });
   }
