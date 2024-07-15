@@ -1,0 +1,4 @@
+<p>events works!</p>
+@if (currentUserTypes === userTypes.MASTER) {
+   <app-form [formConfig]="formConfig" (onSubmit)="handleCreation($event)"></app-form>
+}
