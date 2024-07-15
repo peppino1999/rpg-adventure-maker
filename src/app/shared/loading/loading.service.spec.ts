@@ -14,4 +14,20 @@ describe('LoadingService', () => {
     expect(service).toBeTruthy();
   });
 
+  it('should have a loadingCount proprety', () =>{
+    expect(service.loadingCount).toBe(0)
+  });
+
+  it('should increment loading', () =>{
+    service.loadingCount++;
+    service.loadingCount--;
+    expect(service.loadingCount).toBe(0)
+  });
+
+  it('should set isLoading true if loadingCount > 0', ()=>{
+    service.loadingCount++;
+    expect(service.isLoading).toBeTruthy()
+  })
+
+
 });

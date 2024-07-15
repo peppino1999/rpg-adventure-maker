@@ -1,0 +1,11 @@
+<button mat-button [routerLink]="['/master']">
+    <mat-icon fontIcon=" arrow_back"></mat-icon>
+</button>
+@if (character$ | async; as character) {
+   <h1>{{character.name}}</h1>
+   <h2>{{character.class}}</h2>
+   <h3>{{character.race}}</h3>
+   <h4>{{character.background}}</h4>
+   <h5>{{character.strength}}</h5>
+   <h6>{{character.id}}</h6> 
+}@else {<p>Personaggio non presente</p>}

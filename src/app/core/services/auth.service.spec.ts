@@ -21,6 +21,7 @@ describe('AuthService', () => {
     });
     service = TestBed.inject(AuthService);
     httpMock = TestBed.inject(HttpTestingController);
+
   });
 
   afterEach(() => {
@@ -29,6 +30,50 @@ describe('AuthService', () => {
 
   it('should be created', () => {
     expect(service).toBeTruthy();
+  });
+
+  it('should have a storage property', () =>{
+    expect(service.storage).toBeTruthy()
+  });
+
+ it('should sign up successfully', () =>{
+    
+    service.signup(mocks.signupData).subscribe((res) =>{
+    expect(res).toBe(mocks.mockResponse)
+   
+    }) 
+    const mockReq = httpMock.expectOne(`${service.apiUrl}/signup`)
+   
+    expect(mockReq.request.method).toBe('POST');
+    expect(mockReq.request.body).toBe(mocks.signupData);
+     mockReq.flush(mocks.mockResponse);
+  });
+
+  it('should sign in successfully', () =>{ 
+   
+    service.login(mocks.loginData).subscribe(
+      (res) =>{
+        expect(res).toBe(mocks.mockResponse) 
+      }
+    )
+
+    const mockReq = httpMock.expectOne(`${service.apiUrl}/signin`)
+    expect(mockReq.request.method).toBe('POST');
+    expect(mockReq.request.body).toBe(mocks.loginData);
+    mockReq.flush(mocks.mockResponse);
+
+    expect(service.isLoggedIn).toBeTrue();
+    expect(service.token).toBe(mocks.mockResponse.accessToken);
+    expect(service.partyId).toBe(mocks.mockResponse.user.partyId);
+  });
+
+ 
+
+  it('should sign out successfully', () =>{
+     service.logout();
+     expect(service.isLoggedIn).toBeFalse()
+     expect(service.token).toBeNull()
+     expect(service.partyId).toBeNull();
   });
 
  

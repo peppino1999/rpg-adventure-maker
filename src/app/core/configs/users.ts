@@ -82,25 +82,16 @@ export const UpdateUserConfig: FormConfig[] = [
 
 
 export const userTableConfig: TableConfig[] = [
-  {
-    name: 'firstName',
-    type: 'text',
-    label: 'Nome',
-  },
-  {
-    name: 'lastName',
-    type: 'text',
-    label: 'Cognome',
-  },
-  {
-    name: 'city',
-    type: 'text',
-    label: 'Città',
-  },
+  
   {
     name: 'email',
     type: 'text',
     label: 'Email',
+  },
+  {
+    name: 'type',
+    type: 'text',
+    label: 'Type'
   },
   {
     name: 'detail',
