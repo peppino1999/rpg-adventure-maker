@@ -1,4 +1,9 @@
-<pre>{{events$ | async | json}}</pre>
-@defer (when currentUserTypes === userTypes.MASTER) {
+<section class="events-container">
+   <pre>{{events$ | async | json}}</pre>
+@if (currentUserTypes === userTypes.MASTER) {
+   <div class="events-master-form">
    <app-form [formConfig]="formConfig" (onSubmit)="handleCreation($event)"></app-form>
+</div>
 }
+</section>
+

@@ -23,10 +23,14 @@ export class EventsComponent extends EssentialComponent implements OnInit{
   events$ = this.eventsService.events$;
 
  ngOnInit() {
-   this.eventsService.getEvents();
+   this.eventsService.pollEvents();
   }
 
   handleCreation(event: Partial<GameEvent>) {
     this.eventsService.createEvent(event)
+  }
+
+  override ngOnDestroy(): void {
+    this.eventsService.destroyPollEvents()
   }
 }
