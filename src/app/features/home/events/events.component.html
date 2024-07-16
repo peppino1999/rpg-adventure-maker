@@ -1,9 +1,22 @@
 <section class="events-container">
-   <pre>{{events$ | async | json}}</pre>
-@if (currentUserTypes === userTypes.MASTER) {
-   <div class="events-master-form">
-   <app-form [formConfig]="formConfig" (onSubmit)="handleCreation($event)"></app-form>
-</div>
-}
+  @for (event of events$ |async; track $index) {
+  <mat-card class="event-card">
+    <mat-card-header>
+      <mat-card-title>{{ event.title }}</mat-card-title>
+      <mat-card-subtitle>{{
+        event.creationDate | date : "dd/MM/yyyy H:mm"
+      }}</mat-card-subtitle>
+      <mat-card-content>
+         {{ event.content }}
+      </mat-card-content>
+    </mat-card-header>
+  </mat-card>
+  } @if (currentUserTypes === userTypes.MASTER) {
+  <div class="events-master-form">
+    <app-form
+      [formConfig]="formConfig"
+      (onSubmit)="handleCreation($event)"
+    ></app-form>
+  </div>
+  }
 </section>
-
