@@ -1,4 +1,4 @@
-<p>events works!</p>
-@if (currentUserTypes === userTypes.MASTER) {
+<pre>{{events$ | async | json}}</pre>
+@defer (when currentUserTypes === userTypes.MASTER) {
    <app-form [formConfig]="formConfig" (onSubmit)="handleCreation($event)"></app-form>
 }
